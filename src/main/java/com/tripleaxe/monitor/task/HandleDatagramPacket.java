@@ -29,7 +29,7 @@ public class HandleDatagramPacket implements Runnable {
      */
     private static final Logger logger = LoggerFactory.getLogger(HandleDatagramPacket.class);
 
-    private String message;
+    private final String message;
 
     private final Gson gson = CustomGsonBuilder.createGson();
 

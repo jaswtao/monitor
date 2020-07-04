@@ -22,7 +22,7 @@ import java.util.concurrent.Executors;
 public class DatagramServer {
 
     private static final Logger logger = LoggerFactory.getLogger(DatagramServer.class);
-    private ExecutorService executorService = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
+    private final ExecutorService executorService = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors() * 2);
 
     @PostConstruct
     public void initialize() {
