@@ -7,9 +7,10 @@ import org.springframework.stereotype.Component;
 
 /**
  * 提供ApplicationContext的获取方式
- *
+ * <p>
  * Created on : 6/16/2017
- * Author     : Terry Tao
+ *
+ * @author Tao
  */
 @Component
 public class ApplicationContextProvider implements ApplicationContextAware {

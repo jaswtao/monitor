@@ -1,6 +1,6 @@
 package com.tripleaxe.monitor.common;
 
-import com.tripleaxe.commons.exception.ServiceException;
+import com.tripleaxe.monitor.exception.ServiceException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;

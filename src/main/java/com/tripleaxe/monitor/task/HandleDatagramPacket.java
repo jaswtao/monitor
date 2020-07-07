@@ -1,8 +1,6 @@
 package com.tripleaxe.monitor.task;
 
 import com.google.gson.Gson;
-import com.tripleaxe.commons.util.CustomGsonBuilder;
-import com.tripleaxe.commons.util.StringUtils;
 import com.tripleaxe.monitor.common.ApplicationContextProvider;
 import com.tripleaxe.monitor.common.CachedUserAgentStringParser;
 import com.tripleaxe.monitor.common.PropertiesUtils;
@@ -14,6 +12,8 @@ import net.sf.uadetector.ReadableUserAgent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
+
+import java.util.UUID;
 
 /**
  * <p>
@@ -31,7 +31,7 @@ public class HandleDatagramPacket implements Runnable {
 
     private final String message;
 
-    private final Gson gson = CustomGsonBuilder.createGson();
+    private final Gson gson = new Gson();
 
     public HandleDatagramPacket(String message) {
         this.message = message;
@@ -75,7 +75,7 @@ public class HandleDatagramPacket implements Runnable {
      * @param requestDetail
      */
     private void handleWithMysql(RequestDetail requestDetail) {
-        requestDetail.setId(StringUtils.generateUUID());
+        requestDetail.setId(UUID.randomUUID().toString());
         RequestDetailMapper mapper = (RequestDetailMapper) ApplicationContextProvider.getContext().getBean("requestDetailMapper");
         mapper.insertSelective(requestDetail);
     }
